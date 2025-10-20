@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_20_132252) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_20_140256) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,14 +47,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_20_132252) do
     t.index ["user_id"], name: "index_area_types_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
-  end
-
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -66,29 +58,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_20_132252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clients_on_user_id"
-  end
-
-  create_table "measurements", force: :cascade do |t|
-    t.string "client"
-    t.string "site"
-    t.string "location"
-    t.integer "user_id", null: false
-    t.integer "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "area_name"
-    t.integer "units_per_floor"
-    t.integer "number_of_floors"
-    t.index ["category_id"], name: "index_measurements_on_category_id"
-    t.index ["user_id"], name: "index_measurements_on_user_id"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -123,38 +92,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_20_132252) do
     t.index ["user_id"], name: "index_sites_on_user_id"
   end
 
-  create_table "sizes", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "product_id", null: false
-    t.decimal "buying_price"
-    t.decimal "selling_price"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_sizes_on_product_id"
-    t.index ["user_id"], name: "index_sizes_on_user_id"
-  end
-
-  create_table "stock_items", force: :cascade do |t|
-    t.integer "stock_id", null: false
-    t.integer "product_id", null: false
-    t.integer "size_id", null: false
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "movement_type"
-    t.index ["product_id"], name: "index_stock_items_on_product_id"
-    t.index ["size_id"], name: "index_stock_items_on_size_id"
-    t.index ["stock_id"], name: "index_stock_items_on_stock_id"
-  end
-
-  create_table "stocks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_stocks_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -180,19 +117,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_20_132252) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "area_types", "users"
-  add_foreign_key "categories", "users"
   add_foreign_key "clients", "users"
-  add_foreign_key "measurements", "categories"
-  add_foreign_key "measurements", "users"
-  add_foreign_key "products", "users"
   add_foreign_key "rooms", "users"
   add_foreign_key "sections", "rooms"
   add_foreign_key "sections", "users"
   add_foreign_key "sites", "users"
-  add_foreign_key "sizes", "products"
-  add_foreign_key "sizes", "users"
-  add_foreign_key "stock_items", "products"
-  add_foreign_key "stock_items", "sizes"
-  add_foreign_key "stock_items", "stocks"
-  add_foreign_key "stocks", "users"
 end

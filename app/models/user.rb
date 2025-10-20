@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :products, dependent: :destroy
   has_many :sites, dependent: :destroy
   has_many :area_types, dependent: :destroy
   has_many :rooms, dependent: :destroy

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     resources :rooms
   resources :area_types
   resources :sites
-  resources :stock_items
   devise_for :users, controllers: {
   registrations: "users/registrations"
   }
@@ -21,37 +20,8 @@ Rails.application.routes.draw do
 
   post "/toggle_sign_ups", to: "settings#toggle_sign_ups", as: "toggle_sign_ups"
   
-  resources :sizes
-
-  resources :sizes do
-    member do
-      get :buying_price
-    end
-  end
-
-  resources :sizes do
-    collection do
-      get "by_product/:product_id", to: "sizes#by_product", as: "by_product"
-    end
-  end
-  
-  resources :products do
-    member do
-      get :sizes   # /products/:id/sizes → products#sizes
-    end
-  end
-
-  resources :products do
-    get :sizes, on: :member
-  end
-
-  resources :stocks do
-    collection do
-      get 'group_show', to: 'stocks#group_show'
-    end
-  end
-
   get "home/index"
+  root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -63,5 +33,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-   root "products#index"
+   
 end
