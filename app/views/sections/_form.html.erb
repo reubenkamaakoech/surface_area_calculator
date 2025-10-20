@@ -19,11 +19,6 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :room_id, style: "display: block" %>
-    <%= form.collection_select :room_id, Room.all, :id, :name, {prompt:"Select room"}, class:"form-control" %>
-  </div>
-
-  <div class="mb-3">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name, class:"form-control" %>
   </div>

@@ -7,11 +7,15 @@
     </tr>
   </thead>
     <tbody>
-     <% @rooms.each do |r| %>
+     <% @rooms.each do |room| %>
       <tr>
-        <td><%= r.id %></td>
-        <td><%= r.name %></td>
-        <td><%= link_to "View", r,class:"btn btn-outline-primary btn-sm" %></td>
+        <td><%= room.id %></td>
+        <td><%= room.name %></td>
+        <td>
+          <%= link_to "View", room,class:"btn btn-outline-primary btn-sm" %> |
+          <%= link_to "Edit this room", edit_room_path(room), class:"btn btn-outline-warning btn-sm" %> |
+          <%= link_to "Delete", room, data: { turbo_method: "delete", turbo_confirm: "Are you sure?" }, class:"btn btn-outline-danger btn-sm" %>
+        </td>
       </tr>
      <% end %>
     </tbody>
