@@ -14,7 +14,7 @@
 </p>
 
 <div>
-  <%= link_to "Edit this area tpye", edit_section_path(@section), class:"btn btn-warning btn-sm" %> |
-  <%= link_to "Back to area type", sections_path, class:"btn btn-primary btn-sm" %> |
+  <%= link_to "Edit this section", edit_section_path(@section), class:"btn btn-warning btn-sm" %> |
+  <%= link_to "Back to section", sections_path, class:"btn btn-primary btn-sm" %> |
   <%= link_to "Delete", @section, data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}, class:"btn btn-danger btn-sm" %>
 </div>

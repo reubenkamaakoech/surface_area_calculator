@@ -35,7 +35,23 @@
               <li><a class="dropdown-item" href="<%= sites_path %>">View</a></li>
               <li><a class="dropdown-item" href="<%= new_site_path %>">New</a></li>
             </ul>
-        </div>            
+        </div>
+        
+        <div class="input-group mb-0 me-1">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Rooms</button>
+            <ul class="dropdown-menu bg-light">
+              <li><a class="dropdown-item" href="<%= rooms_path %>">View</a></li>
+              <li><a class="dropdown-item" href="<%= new_room_path %>">New</a></li>
+            </ul>
+        </div>  
+        
+        <div class="input-group mb-0 me-1">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sections</button>
+            <ul class="dropdown-menu bg-light">
+              <li><a class="dropdown-item" href="<%= sections_path %>">View</a></li>
+              <li><a class="dropdown-item" href="<%= new_section_path %>">New</a></li>
+            </ul>
+        </div>   
           
         <% if current_user.admin? %>
         <div>
