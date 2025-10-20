@@ -1,0 +1,9 @@
+<% content_for :title, "New room" %>
+
+<%= render "form", room: @room %>
+
+<br>
+
+<div>
+  <%= link_to "Back to rooms", rooms_path, class:"btn btn-primary btn-sm" %>
+</div>

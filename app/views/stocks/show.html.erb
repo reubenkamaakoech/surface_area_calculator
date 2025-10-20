@@ -1,0 +1,39 @@
+<h3>Items:</h3>
+
+<% if @stock.stock_items.any? %>
+  <table class="table table-bordered">
+    <thead style="position: sticky; top: 0; background-color: rgb(146, 211, 232); z-index: 10;">
+      <tr>
+        <th>Product</th>
+        <th>Size</th>
+        <th>Buying Price</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @stock.stock_items.each do |item| %>
+        <tr class="<%= 'table-warning' if item.id == @highlight_stock_item_id %>">
+          <td><%= item.product.name if item.product %></td>
+          <td><%= item.size.name if item.size %></td>
+          <td><%= number_to_currency(item.size.buying_price, unit:"Ksh ") if item.size %></td>
+          <td><%= item.quantity %></td>
+          <td><%= number_to_currency(item.quantity * item.size.buying_price, unit:"Ksh ") if item.size %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No items in this stock.</p>
+<% end %>
+
+<div class="mb-3">
+<%= link_to "Back to Stocks", stocks_path, class: "btn btn-secondary btn-sm" %>
+<%= link_to "Edit this Stock", edit_stock_path(@stock), class: "btn btn-primary btn-sm" %>
+<%= link_to "Delete", @stock, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+</div>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @stock.user.username if @stock.user %>
+</p>

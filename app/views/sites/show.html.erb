@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @site.name %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @site.user&.username %>
+</p>
+
+<div>
+  <%= link_to "Edit this site", edit_site_path(@site), class:"btn btn-warning btn-sm" %> |
+  <%= link_to "Back to sites", sites_path, class:"btn btn-primary btn-sm" %> |
+  <%= link_to "Delete", @site, data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}, class:"btn btn-danger btn-sm" %>
+</div>

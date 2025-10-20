@@ -1,0 +1,33 @@
+<h1>Stock Overview</h1>
+
+<table class="table table-bordered">
+  <thead style="position: sticky; top: 0; background-color: rgb(146, 211, 232); z-index: 10;">
+    <tr>
+      <th>#</th>
+      <th>Product</th>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Total Cost</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grouped_stock_items.each_with_index do |((product_id, size_id), items), index| %>
+      <% product = items.first.product %>
+      <% size = items.first.size %>
+      <% total_quantity = StockItem.total_quantity(items) %>
+      <% total_cost = StockItem.total_cost(items) %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= product&.name %></td>
+        <td><%= size&.name %></td>
+        <td class="fw-bold"><%= total_quantity %></td>
+        <td><%= number_to_currency(total_cost, unit:"Ksh ") %></td>
+        <td>
+          <%= link_to "View Movement", group_show_stocks_path(product_id: product.id, size_id: size.id), class: "btn btn-outline-primary btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

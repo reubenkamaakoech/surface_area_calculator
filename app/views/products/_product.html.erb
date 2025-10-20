@@ -1,0 +1,23 @@
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Action</th>
+      <th scope="col">Add Size</th>
+    </tr>
+  </thead>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= link_to "Show", product, class:'btn btn-outline-primary btn-sm' %></td>
+       
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+ 
+  
+

@@ -1,0 +1,9 @@
+<% content_for :title, "Edit Product" %>
+
+<%= render "form", product: @product %>
+
+<br>
+
+<div class="container">
+  <%= link_to "Back", products_path, class:'btn btn-outline-primary btn-sm' %>
+</div>

@@ -1,0 +1,15 @@
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @room.user&.username %>
+</p>
+
+<div>
+  <%= link_to "Edit this site", edit_room_path(@room), class:"btn btn-warning btn-sm" %> |
+  <%= link_to "Back to sites", rooms_path, class:"btn btn-primary btn-sm" %> |
+  <%= link_to "Delete", @room, data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}, class:"btn btn-danger btn-sm" %>
+</div>

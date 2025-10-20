@@ -1,0 +1,78 @@
+<div class="mb-3">
+<% if user_signed_in? %>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top no-print" style="background-color: rgb(146, 211, 232);">
+    <div class="container-fluid">
+      
+      <div class="mb-0">
+       <ul>
+          <h2><i><%= link_to 'Nola Solutions', root_path, class:'navbar-brand', style: 'color: #006633;' %></i></h2>
+       </ul>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
+
+        <% if current_user.admin? %>  
+        <div class="input-group mb-0 me-1">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-label="false">User Management</button>
+            <ul class="dropdown-menu bg-light">
+                <li><a class="dropdown-item" href="<%= users_path %>">Users</a></li>
+            </ul>
+        </div>
+         <% end%>        
+
+        <div class="input-group mb-0 me-1">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Area Types</button>
+            <ul class="dropdown-menu bg-light">
+              <li><a class="dropdown-item" href="<%= area_types_path %>">View</a></li>
+              <li><a class="dropdown-item" href="<%= new_area_type_path %>">New</a></li>
+            </ul>
+        </div>
+        
+        <div class="input-group mb-0 me-1">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sites</button>
+            <ul class="dropdown-menu bg-light">
+              <li><a class="dropdown-item" href="<%= sites_path %>">View</a></li>
+              <li><a class="dropdown-item" href="<%= new_site_path %>">New</a></li>
+            </ul>
+        </div>            
+          
+        <% if current_user.admin? %>
+        <div>
+          <% setting = Setting.first_or_create(sign_ups_enabled: false) %>
+
+        <%= form_with url: toggle_sign_ups_path, method: :post, local: true do %>
+          <%= submit_tag(setting.sign_ups_enabled? ? "Disable Sign Ups" : "Enable Sign Ups", 
+                 class: "btn btn-#{setting.sign_ups_enabled? ? 'danger' : 'success'}") %>
+        <% end %>
+        </div>
+        <% end %>
+        
+       </div> 
+        <% if user_signed_in? %>
+          <h5>Welcome <%= current_user.username %>!</h5>
+        <% end %>
+       </div>
+
+       <div class="me-3">
+         <% if current_user && current_user.image.attached? %>
+            <%= image_tag url_for(current_user.image), class: "rounded-circle", size: "60x60" %>
+         <% else %>
+           <p>No image uploaded.</p>
+         <% end %>
+       </div>
+
+        <form class="me-3">    
+          <div class="input-group mb-0">
+           <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">My Profile</button>
+            <ul class="dropdown-menu bg-light">
+                <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Edit Profile</a></li>
+                <li><%= link_to "Sign Out", sign_out_path, class: "dropdown-item", data: { confirm: "Are you sure you want to sign out?" } %></li>
+            </ul>
+          </div> 
+        </form>
+  </nav>
+  <% end %>
+  </div>
+
+

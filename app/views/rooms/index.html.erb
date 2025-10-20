@@ -1,0 +1,12 @@
+<% content_for :title, "Rooms" %>
+
+<div class="text-end mb-3">
+  <%= link_to "New room", new_room_path, class:"btn btn-success btn-sm" %>
+</div>
+
+<div id="rooms">
+  
+    <%= render "rooms/room" %>
+    
+</div>
+

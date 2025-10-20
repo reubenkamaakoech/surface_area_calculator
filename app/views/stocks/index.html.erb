@@ -1,0 +1,9 @@
+<% content_for :title, "Stocks" %>
+
+<div id="stocks">
+  
+    <%= render "stocks/stock" %>
+  
+</div>
+
+<%= link_to "New stock", new_stock_path, class:"btn btn-success btn-sm" %>

@@ -1,0 +1,15 @@
+<p>
+  <strong>Area type:</strong>
+  <%= @area_type.name %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @area_type.user&.username %>
+</p>
+
+<div>
+  <%= link_to "Edit this area tpye", edit_area_type_path(@area_type), class:"btn btn-warning btn-sm" %> |
+  <%= link_to "Back to area type", area_types_path, class:"btn btn-primary btn-sm" %> |
+  <%= link_to "Delete", @area_type, data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}, class:"btn btn-danger btn-sm" %>
+</div>

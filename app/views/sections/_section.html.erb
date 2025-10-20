@@ -1,0 +1,30 @@
+<table class="table">
+  <thead style="position: sticky; top: 0; background-color: rgb(146, 211, 232); z-index: 10;">
+    <tr>
+      <th>Id</th>
+      <th>Section</th>
+      <th>Room</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @sections.each do |section| %>
+    <tr>
+      <td><%= section.id %></td>
+      <td><%= section.name %></td>
+      <td><%= section.room.name %></td>
+      <td>
+        <%= link_to "View", section, class:"btn btn-outline-primary btn-sm" %> |
+        <%= link_to "Edit this section", edit_section_path(section), class:"btn btn-outline-warning btn-sm" %> |
+        <%= link_to "Delete", section, data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}, class:"btn btn-outline-danger btn-sm" %>
+      </td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+  

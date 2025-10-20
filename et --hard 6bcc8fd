@@ -1,0 +1,26 @@
+[33mc6bc65e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m6bcc8fd[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: reset: moving to HEAD~1
+[33m1f4b593[m HEAD@{2}: reset: moving to HEAD~1
+[33mec6a928[m HEAD@{3}: Branch: renamed refs/heads/main to refs/heads/main
+[33mec6a928[m HEAD@{5}: commit: initial commit
+[33m1f4b593[m HEAD@{6}: commit: stocks finalized
+[33m6bcc8fd[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{7}: commit: stock_items added
+[33mc6bc65e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{8}: commit: finished stocks table
+[33m76c1ccc[m HEAD@{9}: commit: changes in stock tables
+[33me89c046[m HEAD@{10}: commit: added stocks table
+[33m34d9511[m HEAD@{11}: commit: first commit
+[33ma8fc187[m HEAD@{12}: Branch: renamed refs/heads/master to refs/heads/main
+[33ma8fc187[m HEAD@{14}: commit (initial): first commit
+[33mc6bc65e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{Mon Oct 20 11:53:28 2025}: reset: moving to HEAD~1
+[33m6bcc8fd[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{Mon Oct 20 11:32:37 2025}: reset: moving to HEAD~1
+[33m1f4b593[m HEAD@{Mon Oct 20 11:31:11 2025}: reset: moving to HEAD~1
+[33mec6a928[m HEAD@{Mon Oct 20 11:26:35 2025}: Branch: renamed refs/heads/main to refs/heads/main
+[33mec6a928[m HEAD@{Mon Oct 20 11:25:34 2025}: commit: initial commit
+[33m1f4b593[m HEAD@{Sun Sep 28 16:45:56 2025}: commit: stocks finalized
+[33m6bcc8fd[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{Sun Sep 28 15:13:50 2025}: commit: stock_items added
+[33mc6bc65e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{Sun Sep 28 08:25:47 2025}: commit: finished stocks table
+[33m76c1ccc[m HEAD@{Wed Sep 24 22:52:08 2025}: commit: changes in stock tables
+[33me89c046[m HEAD@{Wed Sep 24 20:38:23 2025}: commit: added stocks table
+[33m34d9511[m HEAD@{Wed Sep 24 20:27:29 2025}: commit: first commit
+[33ma8fc187[m HEAD@{Wed Sep 24 20:25:03 2025}: Branch: renamed refs/heads/master to refs/heads/main
+[33ma8fc187[m HEAD@{Wed Sep 24 20:24:38 2025}: commit (initial): first commit

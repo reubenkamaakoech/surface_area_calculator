@@ -1,0 +1,9 @@
+<% content_for :title, "New section" %>
+
+<%= render "form", section: @section %>
+
+<br>
+
+<div>
+  <%= link_to "Back to sections", sections_path, class:"btn btn-primary btn-sm" %>
+</div>

@@ -1,0 +1,65 @@
+<% content_for :title, "Users" %>
+
+<div class="container">
+
+<div>
+<% setting = Setting.first_or_create(sign_ups_enabled: false) %>
+
+<%= form_with url: toggle_sign_ups_path, method: :post, local: true do %>
+  <%= submit_tag(setting.sign_ups_enabled? ? "Disable Sign Ups" : "Enable Sign Ups", 
+                 class: "btn btn-#{setting.sign_ups_enabled? ? 'danger btn-sn' : 'success btn-sm'}") %>
+<% end %>
+</div>
+
+<table class="table table-bordered table-striped sticky-header">
+  <thead style="position: sticky; top: 0; background-color: rgb(146, 211, 232); z-index: 10;">
+    <tr>
+      <th>Id</th>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Role</th>
+      <th>Actions</th>
+      <th colspan="2">Online Status</th>
+      <th>Sign In Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td>
+          <%= form_with url: toggle_status_user_path(user), method: :patch, local: true do %>
+            <%= hidden_field_tag :status, false %>
+             <%= check_box_tag :status, true, user.status, onchange: 'this.form.submit();' %>
+            <% end %>
+        </td>
+        <td><%= user.role %></td>
+        <td>
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-sm btn-warning btn-sm" %>
+        <td>
+           <% if user.online? %>
+             <span class="badge bg-success">Online</span>
+           <% else %>
+             <span class="badge bg-secondary">Offline</span>
+           <% end %>
+        </td>
+        <td>
+          <% if user.last_seen_at.present? %>
+            Last seen: <%= time_ago_in_words(user.last_seen_at) %> ago
+          <% else %>
+            Never logged in
+          <% end %>
+        </td> 
+        <td>
+          <p><%= user.username %> has logged in <%= user.sign_in_count %> times.</p>
+        </td>    
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+

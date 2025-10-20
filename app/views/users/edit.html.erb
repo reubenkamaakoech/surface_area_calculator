@@ -1,0 +1,29 @@
+<% content_for :title, "Users" %>
+
+<div class="container">
+<%= form_with(model: @user, local: true) do |f| %>
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :role %>
+    <% first_user = User.order(:created_at).first %>
+    <%= f.select :role, User::ROLES, { prompt: "-Select Role-" }, { class: "form-control", disabled: (@user == first_user) } %>
+  </div><br/>
+
+  <div style="max-width: 25rem;">
+    <%= f.label :image %>
+    <%= f.file_field :image, class:"form-control" %>
+  </div><br/>
+
+  <%= f.submit "Update User", class: "btn btn-success btn-sm" %>
+<% end %>
+</div>
+

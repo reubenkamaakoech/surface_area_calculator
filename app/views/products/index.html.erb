@@ -1,0 +1,10 @@
+<% content_for :title, "Products" %>
+
+<div id="products">  
+     
+    <%= render 'products/product' %>
+    
+
+</div>
+
+     <%= link_to "New product", new_product_path, class:'btn btn-success btn-sm' %>

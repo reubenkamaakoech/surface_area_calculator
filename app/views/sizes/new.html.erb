@@ -1,0 +1,9 @@
+<% content_for :title, "New size" %>
+
+<%= render "form", size: @size %>
+
+<br>
+
+<div class="container">
+  <%= link_to "Back to sizes", sizes_path, class:"btn btn-primary btn-sm" %>
+</div>

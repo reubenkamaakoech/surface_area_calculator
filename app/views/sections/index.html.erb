@@ -1,0 +1,12 @@
+<% content_for :title, "Sections" %>
+
+<div class="text-end mb-3">
+ <%= link_to "New section", new_section_path, class:"btn btn-success btn-sm" %>
+</div>
+
+<div id="sections">
+  
+    <%= render "sections/section" %>
+    
+</div>
+

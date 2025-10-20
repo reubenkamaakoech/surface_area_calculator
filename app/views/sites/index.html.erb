@@ -1,0 +1,12 @@
+<% content_for :title, "Sites" %>
+
+<div class="text-end mb-3">
+  <%= link_to "New site", new_site_path, class:"btn btn-success btn-sm" %>
+</div
+
+<div id="sites">
+  
+    <%= render "sites/site" %>
+        
+</div>
+
